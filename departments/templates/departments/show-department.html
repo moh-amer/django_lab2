@@ -1,0 +1,14 @@
+{% extends 'emp_base.html' %}
+
+{% block content %}
+<h1 ><span class="badge bg-secondary">{{ dept }}</span> Department</h1>
+<br>
+<br>
+<h3>Members:</h3>
+<br>
+<ol class="list-group list-group-numbered">
+  {% for emp in emps %}
+  <li class="list-group-item">{{ emp }}</li>
+  {% endfor %}
+</ol>
+{% endblock content %}

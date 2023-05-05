@@ -1,0 +1,39 @@
+{% extends 'emp_base.html' %}
+
+{% block content %}
+<br>
+<br>
+<h1>Departments</h1>
+<br>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Details</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for d in depts %}
+    <tr>
+      <th scope="row"> {{ d.id }} </th>
+      <th scope="row"> {{ d }} </th>
+      <th scope="row">
+        <a href="{{ d.get_show_department_url }}" class="btn btn-primary">Show</a>
+      </th>
+      <th scope="row">
+        <a href="{{ d.get_update_department_url }}" class="btn btn-warning">Update</a>
+      </th>
+      <th scope="row">
+        <a href="{{ d.get_delete_url }}" class="btn btn-danger">Delete</a>
+      </th>
+    </tr>
+  {% endfor %}
+  <a href="{% url 'departments.insert' %}" class="btn btn-primary">Insert New Employee</a>
+  </tbody>
+</table>
+{% endblock %}
